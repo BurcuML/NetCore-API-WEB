@@ -18,7 +18,6 @@ namespace App.Repositories
         //constructor
         /* public AppDbContext(DbContextOptions options) : base(options) //birden fazla dbcontext olsaydı "DbContextOptions<AppDbContext> options" bu şekilde verebilirdik
          {
-
          }*/
 
 
