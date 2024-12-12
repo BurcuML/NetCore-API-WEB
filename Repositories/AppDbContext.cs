@@ -22,7 +22,7 @@ namespace App.Repositories
 
 
         //Tablo
-        public DbSet<Product> Products { get; set; } = default;
+        public DbSet<Product> Products { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -21,7 +21,7 @@ namespace App.Repositories.Extensions
                 var connectionStrings = configuration.GetSection(ConnectionStringOption.Key).Get<ConnectionStringOption>();
                 options.UseSqlServer(connectionStrings!.SqlServer, sqlServerOptionsAction =>
                 {
-                    sqlServerOptionsAction.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName);
+                    sqlServerOptionsAction.MigrationsAssembly(typeof(RepositoryAssembly).Assembly.FullName);
                 }); //ünlemi compiler için koyuyoruz, bu datanın olduğunu belirtmek için
             });
 
