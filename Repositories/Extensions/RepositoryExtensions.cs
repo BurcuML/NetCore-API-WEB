@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using App.Repositories.Products;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -25,7 +26,14 @@ namespace App.Repositories.Extensions
                 }); //ünlemi compiler için koyuyoruz, bu datanın olduğunu belirtmek için
             });
 
-            return services;
+            //Burada IProductRepository'i gördüğün zaman ProductRepository'den nesne örneği üreteceksin diyor
+            //Yaşam döngüsü scoped request response a döndüğü anda ProductRepository bu nesnenin de response olması lazım
+            //çünkü bu nesnelerde DbContext'ler var (DbContext'in kendisi Scoped)
+            //Repository'ler singloten olmaz ya da Transient olmaz fakat efCore için geçerli bu
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>)); //eğer IGenericRepository bu birden fazla generic alsaydı
+                                                                                          //ortaya <,> bu şekilde bir virgül koyacaktık
+            return services; 
 
         }
     }

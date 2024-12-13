@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Services
+namespace App.Services.Products
 {
-    public class ProductService(IGenericRepository<Product> productRepository)
+    //Service'lerimizi mümkün olduğunca generic yapmayalım
+    public class ProductService(IGenericRepository<Product> productRepository) : IProductService
     {
-        
+
     }
 }
