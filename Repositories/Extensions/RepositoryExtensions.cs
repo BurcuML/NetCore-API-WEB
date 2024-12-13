@@ -13,7 +13,7 @@ namespace App.Repositories.Extensions
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
         {
-
+            //program.cs içinden kurtarmak için bu extension kodu yazdık
             //efcore configuration
 
             services.AddDbContext<AppDbContext>(options =>
