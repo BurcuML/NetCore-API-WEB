@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 namespace App.Services.Products
 {
     //Service'lerimizi mümkün olduğunca generic yapmayalım
-    public class ProductService(IGenericRepository<Product> productRepository) : IProductService
+    public class ProductService(IProductRepository productRepository) : IProductService
     {
 
+        public Task<List<Product>> GetTopPriceProductsAsync(int count)
+        {
+            return productRepository.GetTopSellingProductAsync(count);
+        }
     }
 }

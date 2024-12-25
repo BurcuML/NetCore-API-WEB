@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace App.Services.Extensions
 {
+    //Controller'lar(API) hiçbir zaman direkt repository'lerle çalışmaz her zaman business logic'in(service) yazılı olduğu servislerle çalışırlar
     public static class ServiceExtensions
     {
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
